@@ -5,35 +5,233 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreeTime</title>
+    <title>Mobile first</title>
+    
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+
+
+body{
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    background: #eee;
+    height: auto;
+    scroll-behavior: smooth;
+}
+
+
+h1{
+    font-weight: 400;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h2{
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin: 0;
+
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+img:hover{
+    filter: blur(1px);
+    /* transition: ease-in; */
+}
+
+
+main{
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 30px 0px 40px rgba(0, 0,0, 0.4),
+    -30px 0px 40px rgba(0, 0,0, 0.4  );
+}
+
+#landing{
+    background: #fff;
+}
+
+#landing-text{
+    display: flex;
+    flex: 0 1 40vw;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#landing-text h2{
+    color: #888;
+}
+
+#landing-img{
+    filter: blur(1px);
+    background: url(https://source.unsplash.com/LKsHwgzyk7c);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+    flex: 0 1 60vh;
+    margin: 0;
+}
+
+.btn{
+    padding: 0.5rem 2rem;
+    border: 1px #ccc solid;
+    display: inline-block;
+    margin: 2rem 0 0 ;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #333;   
+    transition: background 500ms ease-in;
+    
+}
+
+.btn:hover{
+    background: #333;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+#header{
+    padding: 1.54rem;
+    text-align: center;
+    background:#333;
+    color: #fff;
+}
+
+#header h2{
+    border-left: dotted 1px #fff;
+    border-right: dotted 1px #fff;
+    display: inline-block;
+    padding-right:  2rem;
+    padding-left: 2rem;
+}
+
+.caption{
+    padding: 0.8rem;
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: auto;
+    color: #333;
+}
+
+footer h3{
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+/* screen sizes 750px and up  */
+@media(min-width : 750px){
+    #landing {
+        display: flex;
+        height: 100%;
+    }
+
+    #landing-text{
+        height: 100vh;
+    }
+
+    #landing-img{
+        height: 100vh;
+    }
+}
+
+/* screen sizes 700px up */
+@media(min-width: 700px){
+    .btn{
+        padding:1rem 3rem;
+    }
+}
+    </style>
+    
 </head>
 
 <body>
-    <p>Click the button to get your coordinates.</p>
+    <main>
+        <div id="landing">
+            <div id="landing-text">
+                <div id="landing-text-inner">
+                    <h1>LUMOS WEB DESIGNERS</h1>
+                    <H2>BEST IN WEB DESIGNIN</H2>
+                    <a href="#images" class="btn" id="view-work">View Work</a>
+                </div>
+            </div>
+            <div id="landing-img"></div>
+        </div>
+        <div id="images">
+            <div id="header">
+                <h2>Our Work</h2>
+            </div>
 
-    <button onclick="getLocation()">Try It</button>
-    
-    <p id="demo"></p>
-    
+            <img src="https://source.unsplash.com/1eRS74C-alQ" alt="work">
+            <div class="caption">
+                <h3>Web Designs</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, porro?
+                </p>
+            </div>
+
+            <img src="https://source.unsplash.com/6sAl6aQ4OWI" alt="work">
+            <div class="caption">
+                <h3>Mobile Development</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, porro?
+                </p>
+            </div>
+
+            <img src="https://source.unsplash.com/KCevmG-xRqE" alt="work">
+            <div class="caption">
+                <h3>Modern Cars</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, porro?
+                </p>
+            </div>
+
+            <img src="https://source.unsplash.com/sWcmM_sqq4s" alt="work">
+            <div class="caption">
+                <h3>JDM</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, porro?
+                </p>
+            </div>
+        </div>
+    </main>
+    <br><br>
+    <hr>
+    <footer>
+        <h3>Get In Touch</h3>
+        <p>Email or Call us</p>
+        <p>Email: <strong>info.lumos.com</strong></p>
+
+        <p>Phone: <strong>2 729 729</strong></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-    var x = document.getElementById("demo");
-    
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
-    
-    function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude;
-    }
+    	// Animate smooth scroll
+
+$('#view-work').on('click', function () {
+    const images = $('#images').position().top;
+
+    $('html, body').animate(
+        {
+            scrollTop: images
+        },
+        900
+    );
+});
+
     </script>
-
-    <iframe height="420" width="315" src="https://www.youtube.com/watch?v=VPRjCeoBqrI" frameborder="0"></iframe>
-
 </body>
 
 </html>
